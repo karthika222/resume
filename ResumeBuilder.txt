@@ -1,0 +1,23 @@
+class ResumeBuilder {
+    public static String generateResumeText(Resume resume) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Name: ").append(resume.getName()).append("\n");
+        sb.append("Email: ").append(resume.getEmail()).append("\n");
+        sb.append("Phone: ").append(resume.getPhone()).append("\n");
+        sb.append("Address: ").append(resume.getAddress()).append("\n\n");
+        sb.append("Summary:\n").append(resume.getSummary()).append("\n\n");
+        sb.append("Skills:\n");
+        for (String skill : resume.getSkills()) {
+            sb.append("- ").append(skill).append("\n");
+        }
+        sb.append("\nExperiences:\n");
+        for (String experience : resume.getExperiences()) {
+            sb.append("- ").append(experience).append("\n");
+        }
+        sb.append("\nEducation:\n");
+        for (String education : resume.getEducation()) {
+            sb.append("- ").append(education).append("\n");
+        }
+        return sb.toString();
+    }
+}

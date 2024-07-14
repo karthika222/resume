@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter your email: ");
+        String email = scanner.nextLine();
+
+        System.out.print("Enter your phone: ");
+        String phone = scanner.nextLine();
+
+        System.out.print("Enter your address: ");
+        String address = scanner.nextLine();
+
+        System.out.print("Enter your summary: ");
+        String summary = scanner.nextLine();
+
+        System.out.print("Enter number of skills: ");
+        int skillCount = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+        String[] skills = new String[skillCount];
+        for (int i = 0; i < skillCount; i++) {
+            System.out.print("Enter skill " + (i + 1) + ": ");
+            skills[i] = scanner.nextLine();
+        }
+
+        System.out.print("Enter number of experiences: ");
+        int experienceCount = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+        String[] experiences = new String[experienceCount];
+        for (int i = 0; i < experienceCount; i++) {
+            System.out.print("Enter experience " + (i + 1) + ": ");
+            experiences[i] = scanner.nextLine();
+        }
+
+        System.out.print("Enter number of education entries: ");
+        int educationCount = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+        String[] education = new String[educationCount];
+        for (int i = 0; i < educationCount; i++) {
+            System.out.print("Enter education " + (i + 1) + ": ");
+            education[i] = scanner.nextLine();
+        }
+
+        Resume resume = new Resume(name, email, phone, address, summary, skills, experiences, education);
+        String resumeText = ResumeBuilder.generateResumeText(resume);
+
+        System.out.println("\nGenerated Resume:\n");
+        System.out.println(resumeText);
+
+        scanner.close();
+    }
+}
